@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { Phone, MessageCircle, Menu, X, ShieldCheck, MapPin, Clock, Globe } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { TopAnnouncementBanner } from './TopAnnouncementBanner';
 
 interface NavbarProps {
   onNavigate?: (sectionId: string) => void;
@@ -34,6 +35,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
 
   return (
     <header className="sticky top-0 z-50 w-full transition-all duration-200">
+      {/* Dynamic Animated Engineering Announcement Banner */}
+      <TopAnnouncementBanner />
+
       {/* Top micro bar with contact info & address for trust */}
       <div className="bg-slate-900 text-slate-300 text-xs py-1.5 px-4 hidden md:block border-b border-slate-800">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
