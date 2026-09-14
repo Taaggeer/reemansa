@@ -14,6 +14,7 @@ import { AboutSection } from './components/AboutSection';
 import { SafetyFocusSection } from './components/SafetyFocusSection';
 import { CostEstimator } from './components/CostEstimator';
 import { ProjectGallery } from './components/ProjectGallery';
+import { CompanyProfileViewer } from './components/CompanyProfileViewer';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { StickyBottomBar } from './components/StickyBottomBar';
@@ -64,6 +65,9 @@ function MainApp() {
 
         {/* Visual Portfolio & Project Gallery (Completed Architectural & Safety Works) */}
         <ProjectGallery />
+
+        {/* Interactive Browseable Company Profile (Flipbook Viewer) */}
+        <CompanyProfileViewer />
 
         {/* Interactive Cost Estimator & Quote Request */}
         <CostEstimator />

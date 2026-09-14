@@ -10,7 +10,10 @@ import {
   X, 
   Sparkles,
   ArrowRight,
-  ArrowLeft
+  ArrowLeft,
+  Maximize2,
+  Minimize2,
+  Image as ImageIcon
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -83,16 +86,17 @@ export const TopAnnouncementBanner: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const [isBannerExpanded, setIsBannerExpanded] = useState(false);
 
   // Auto-advance banner every 4.5 seconds when not paused
   useEffect(() => {
-    if (isPaused || !isVisible) return;
+    if (isPaused || !isVisible || isBannerExpanded) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % bannerItems.length);
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [isPaused, isVisible]);
+  }, [isPaused, isVisible, isBannerExpanded]);
 
   if (!isVisible) return null;
 
@@ -112,27 +116,86 @@ export const TopAnnouncementBanner: React.FC = () => {
   return (
     <div
       id="top-announcement-banner"
-      className="relative bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 text-white border-b border-amber-500/25 shadow-inner overflow-hidden select-none z-40 transition-all"
+      className="relative bg-[#383838] text-white border-b border-amber-500/30 shadow-md overflow-hidden select-none z-40 transition-all duration-300"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       role="region"
       aria-label="Important announcements"
     >
-      {/* Subtle glowing ambient accent */}
-      <div className="absolute top-0 left-1/4 w-96 h-full bg-amber-500/10 blur-2xl pointer-events-none" />
-      <div className="absolute top-0 right-1/4 w-96 h-full bg-sky-500/10 blur-2xl pointer-events-none" />
+      {/* Official Reeman Corporate Architectural Banner Artwork as cell background */}
+      <div 
+        className="absolute inset-0 w-full h-full pointer-events-none opacity-40 md:opacity-60 transition-opacity bg-no-repeat"
+        style={{
+          backgroundImage: 'url("./reeman-banner.svg")',
+          backgroundPosition: isRTL ? 'left center' : 'right center',
+          backgroundSize: 'contain',
+        }}
+      />
 
+      {/* Subtle protective vignette to maintain high contrast legibility for announcements */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#2c2d30]/90 via-[#383838]/70 to-[#2c2d30]/90 pointer-events-none" />
+
+      {/* Expanded View: Full Corporate Brand Banner */}
+      <AnimatePresence>
+        {isBannerExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+            className="overflow-hidden border-b border-slate-700 relative bg-[#383838]"
+          >
+            <div className="relative w-full max-w-7xl mx-auto p-2 sm:p-4">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-[#383838]">
+                {/* Full high-res brand banner image */}
+                <img
+                  src="./reeman-banner.svg"
+                  alt="شركة محمد هادي ريمان للإستشارات الهندسية والسلامة - البنر الرسمي"
+                  className="w-full h-auto max-h-[220px] sm:max-h-[300px] object-cover sm:object-contain bg-[#383838]"
+                  referrerPolicy="no-referrer"
+                />
+
+                {/* Overlay actions on banner */}
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 z-10 flex items-center gap-2">
+                  <button
+                    onClick={() => setIsBannerExpanded(false)}
+                    className="p-1.5 rounded-xl bg-slate-900/80 hover:bg-slate-900 text-white backdrop-blur-md border border-slate-700 transition-colors flex items-center gap-1 text-xs font-semibold px-3 py-1.5 shadow-lg"
+                    title={language === 'ar' ? 'تصغير البنر' : 'Minimize banner'}
+                  >
+                    <Minimize2 className="w-3.5 h-3.5 text-amber-400" />
+                    <span>{language === 'ar' ? 'طي البنر' : 'Collapse'}</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Compact Interactive Announcement Row */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-2 relative flex items-center justify-between gap-2 sm:gap-4">
         
-        {/* Navigation Arrow: Prev */}
-        <button
-          onClick={isRTL ? handleNext : handlePrev}
-          className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors focus:outline-none flex-shrink-0"
-          aria-label={isRTL ? 'التالي' : 'Previous announcement'}
-          title={isRTL ? 'التالي' : 'Previous'}
-        >
-          {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
-        </button>
+        {/* Brand Logo & Banner Expand Trigger */}
+        <div className="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+          <button
+            onClick={() => setIsBannerExpanded(!isBannerExpanded)}
+            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900/80 hover:bg-slate-900 text-slate-200 hover:text-white border border-slate-700/80 text-[11px] font-bold transition-all shadow-sm active:scale-95"
+            title={language === 'ar' ? 'معاينة البنر الرسمي كاملاً' : 'View full brand banner'}
+          >
+            <ImageIcon className="w-3.5 h-3.5 text-amber-400" />
+            <span>{isBannerExpanded ? (language === 'ar' ? 'طي البنر' : 'Collapse') : (language === 'ar' ? 'البنر الرسمي' : 'Brand Banner')}</span>
+          </button>
+
+          {/* Navigation Arrow: Prev */}
+          <button
+            onClick={isRTL ? handleNext : handlePrev}
+            className="p-1 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors focus:outline-none flex-shrink-0"
+            aria-label={isRTL ? 'التالي' : 'Previous announcement'}
+            title={isRTL ? 'التالي' : 'Previous'}
+          >
+            {isRTL ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
+          </button>
+        </div>
 
         {/* Dynamic Animated Content */}
         <div className="flex-1 min-w-0 overflow-hidden py-0.5">
@@ -146,7 +209,7 @@ export const TopAnnouncementBanner: React.FC = () => {
               className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3 flex-wrap sm:flex-nowrap"
             >
               {/* Pulsing Live indicator */}
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-[11px] text-slate-300 font-medium flex-shrink-0">
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/90 border border-slate-700/80 text-[11px] text-slate-300 font-medium flex-shrink-0">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -163,7 +226,7 @@ export const TopAnnouncementBanner: React.FC = () => {
               </span>
 
               {/* Text Headline */}
-              <p className="text-xs sm:text-sm font-medium text-slate-200 truncate max-w-xl lg:max-w-2xl text-center sm:text-start">
+              <p className="text-xs sm:text-sm font-medium text-slate-100 truncate max-w-xl lg:max-w-2xl text-center sm:text-start drop-shadow-sm">
                 {language === 'ar' ? currentItem.titleAr : currentItem.titleEn}
               </p>
 
@@ -196,7 +259,7 @@ export const TopAnnouncementBanner: React.FC = () => {
                 className={`transition-all rounded-full ${
                   idx === currentIndex
                     ? 'w-4 h-1.5 bg-amber-400'
-                    : 'w-1.5 h-1.5 bg-slate-700 hover:bg-slate-500'
+                    : 'w-1.5 h-1.5 bg-slate-600 hover:bg-slate-400'
                 }`}
                 aria-label={`Slide ${idx + 1}`}
               />
@@ -205,7 +268,7 @@ export const TopAnnouncementBanner: React.FC = () => {
 
           <button
             onClick={isRTL ? handlePrev : handleNext}
-            className="p-1 rounded-full text-slate-400 hover:text-white hover:bg-slate-800/80 transition-colors focus:outline-none"
+            className="p-1 rounded-full text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors focus:outline-none"
             aria-label={isRTL ? 'السابق' : 'Next announcement'}
             title={isRTL ? 'السابق' : 'Next'}
           >

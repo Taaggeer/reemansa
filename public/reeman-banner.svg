@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient / Tone -->
+    <linearGradient id="bgDarkCharcoal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3A3B3E" />
+      <stop offset="50%" stop-color="#36373A" />
+      <stop offset="100%" stop-color="#323336" />
+    </linearGradient>
+
+    <!-- Subtle lighting glow behind emblem -->
+    <radialGradient id="emblemGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Solid Charcoal Slate Background -->
+  <rect width="1200" height="360" fill="url(#bgDarkCharcoal)" />
+
+  <!-- Bottom-Left Architectural Topographic Contour Lines -->
+  <g fill="none" stroke="#FFFFFF" opacity="0.32" stroke-width="1.2">
+    <path d="M -20 370 C 15 360, 45 350, 75 355 C 105 360, 135 375, 165 370 C 190 365, 210 350, 230 355 C 245 360, 255 370, 270 375" />
+    <path d="M -20 362 C 15 352, 45 342, 75 347 C 105 352, 135 367, 165 362 C 190 357, 210 342, 230 347 C 245 352, 255 362, 270 367" opacity="0.8" />
+    <path d="M -20 354 C 15 344, 45 334, 75 339 C 105 344, 135 359, 165 354 C 190 349, 210 334, 230 339 C 245 344, 255 354, 270 359" opacity="0.6" />
+    <path d="M -20 346 C 15 336, 45 326, 75 331 C 105 336, 135 351, 165 346 C 190 341, 210 326, 230 331 C 245 336, 255 346, 270 351" opacity="0.45" />
+    <path d="M -20 338 C 15 328, 45 318, 75 323 C 105 328, 135 343, 165 338 C 190 333, 210 318, 230 323 C 245 328, 255 338, 270 343" opacity="0.3" />
+  </g>
+
+  <!-- Right Section: Reeman Emblem & Brand Typography -->
+  <g transform="translate(880, 75)">
+    <!-- Soft Glow circle -->
+    <circle cx="95" cy="95" r="140" fill="url(#emblemGlow)" />
+
+    <!-- Structural Square -->
+    <g transform="translate(0, 52)">
+      <!-- Outer Square Frame with crisp clean white stroke -->
+      <rect x="0" y="0" width="76" height="76" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      
+      <!-- Vertical text REEMAN on left side inside square -->
+      <g transform="translate(24, 62) rotate(-90)">
+        <text font-family="'Cairo', 'Montserrat', sans-serif" font-size="9" font-weight="700" fill="#E2E8F0" letter-spacing="4" text-anchor="middle">
+          REEMAN
+        </text>
+      </g>
+
+      <!-- Vertical Structural Beam in center -->
+      <line x1="38" y1="-14" x2="38" y2="90" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Stylized Letter "R" and diagonal architectural bar -->
+    <g transform="translate(36, 0)">
+      <!-- Top Horizontal & Rounded Loop of R -->
+      <path d="M 0 52 L 48 52 C 84 52, 108 62, 108 92 C 108 122, 84 132, 48 132" fill="none" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+      
+      <!-- Architectural Diagonal Leg extending down-right -->
+      <path d="M 44 126 L 138 200" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    </g>
+
+    <!-- Subtitle: ENGINEERING CONSULTANCY -->
+    <g transform="translate(90, 222)">
+      <!-- ENGINEERING -->
+      <text x="0" y="0" font-family="'Cairo', 'Montserrat', 'Inter', sans-serif" font-size="21" font-weight="600" fill="#FFFFFF" letter-spacing="10" text-anchor="middle">
+        ENGINEERING
+      </text>
+      <!-- CONSULTANCY -->
+      <text x="0" y="24" font-family="'Cairo', 'Montserrat', 'Inter', sans-serif" font-size="16" font-weight="500" fill="#E2E8F0" letter-spacing="7" text-anchor="middle">
+        CONSULTANCY
+      </text>
+    </g>
+  </g>
+</svg>

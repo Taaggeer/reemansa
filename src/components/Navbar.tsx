@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
-import { Phone, MessageCircle, Menu, X, ShieldCheck, MapPin, Clock, Globe } from 'lucide-react';
+import { Phone, MessageCircle, Menu, X, ShieldCheck, MapPin, Clock, Globe, BookOpen } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import { TopAnnouncementBanner } from './TopAnnouncementBanner';
 
@@ -142,6 +142,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
               {t('nav_gallery')}
             </button>
             <button
+              onClick={() => scrollToSection('company-profile')}
+              className="hover:text-amber-800 transition-all cursor-pointer py-1 flex items-center gap-1.5 font-bold text-amber-900 bg-amber-50 hover:bg-amber-100 px-2.5 rounded-lg border border-amber-300 shadow-2xs"
+            >
+              <BookOpen className="w-3.5 h-3.5 text-amber-700" />
+              <span>{t('nav_profile')}</span>
+            </button>
+            <button
               onClick={() => scrollToSection('estimator')}
               className="hover:text-sky-700 transition-colors cursor-pointer py-1"
             >
@@ -277,6 +284,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
                 className={`py-2 px-3 rounded-lg hover:bg-slate-50 transition-colors ${isRTL ? 'text-right' : 'text-left'}`}
               >
                 {t('nav_gallery')}
+              </button>
+              <button
+                onClick={() => scrollToSection('company-profile')}
+                className={`py-2.5 px-3 rounded-lg bg-amber-50 text-amber-900 border border-amber-200 font-bold flex items-center justify-between ${isRTL ? 'text-right' : 'text-left'}`}
+              >
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4 text-amber-700" />
+                  <span>{t('nav_profile')}</span>
+                </div>
+                <span className="text-[11px] bg-amber-200/90 text-amber-950 font-semibold px-2 py-0.5 rounded-full">
+                  {language === 'ar' ? 'تفاعلي' : 'Interactive'}
+                </span>
               </button>
               <button
                 onClick={() => scrollToSection('estimator')}

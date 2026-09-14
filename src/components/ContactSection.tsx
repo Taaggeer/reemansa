@@ -6,9 +6,10 @@ import {
   Clock, 
   CheckCircle2, 
   ExternalLink,
-  ShieldCheck,
+  ShieldCheck, 
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { OfficeMap } from './OfficeMap';
 
 export const ContactSection: React.FC = () => {
   const { language, isRTL, t } = useLanguage();
@@ -331,6 +332,11 @@ export const ContactSection: React.FC = () => {
             </form>
           </div>
 
+        </div>
+
+        {/* Interactive Google Map Component */}
+        <div className="mt-10 sm:mt-12" id="office-map-location">
+          <OfficeMap />
         </div>
 
       </div>

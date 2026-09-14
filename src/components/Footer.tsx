@@ -82,6 +82,15 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <button
+                  onClick={() => scrollTo('company-profile')}
+                  className="hover:text-amber-400 text-amber-300 font-semibold transition-colors cursor-pointer flex items-center gap-1"
+                >
+                  <ChevronIcon className="w-3 h-3 text-amber-400 flex-shrink-0" />
+                  <span>{t('nav_profile')}</span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollTo('estimator')}
                   className="hover:text-white transition-colors cursor-pointer flex items-center gap-1"
                 >
