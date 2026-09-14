@@ -10,19 +10,61 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, toggleLanguage, isRTL, t } = useLanguage();
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+
+          setIsScrolled(currentScrollY > 20);
+
+          // If mobile menu is open and user scrolls significantly, close it
+          if (mobileMenuOpen) {
+            if (Math.abs(currentScrollY - lastScrollY.current) > 50) {
+              setMobileMenuOpen(false);
+            }
+            setIsVisible(true);
+            lastScrollY.current = currentScrollY;
+            ticking = false;
+            return;
+          }
+
+          // Always visible near the top of the page
+          if (currentScrollY <= 80) {
+            setIsVisible(true);
+          } else {
+            const diff = currentScrollY - lastScrollY.current;
+            // Scrolling down by more than 10px -> hide navbar while browsing
+            if (diff > 10) {
+              setIsVisible(false);
+            }
+            // Scrolling up by more than 10px -> reveal navbar
+            else if (diff < -10) {
+              setIsVisible(true);
+            }
+          }
+
+          lastScrollY.current = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mobileMenuOpen]);
 
   const scrollToSection = (id: string) => {
     setMobileMenuOpen(false);
+    setIsVisible(true);
     if (onNavigate) {
       onNavigate(id);
     } else {
@@ -34,7 +76,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate }) => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full transition-all duration-200">
+    <header
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out ${
+        isVisible
+          ? 'translate-y-0 opacity-100'
+          : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
+    >
       {/* Dynamic Animated Engineering Announcement Banner */}
       <TopAnnouncementBanner />
 
