@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WX46PH5V');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        // 1. Intercept and suppress the getter TypeError from reporting as an unhandled error
+        if (typeof window !== 'undefined') {
+          window.addEventListener('error', function(event) {
+            if (event && event.message && event.message.indexOf('Cannot set property fetch') !== -1) {
+              event.preventDefault();
+              if (typeof event.stopImmediatePropagation === 'function') {
+                event.stopImmediatePropagation();
+              }
+              return true;
+            }
+          }, true);
+        }
+
+        // 2. Define getter + setter on window, Window.prototype, and prototype chain
+        try {
+          var origFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var targets = [];
+          if (typeof window !== 'undefined') targets.push(window);
+          if (typeof Window !== 'undefined' && Window.prototype) targets.push(Window.prototype);
+          if (typeof window !== 'undefined' && Object.getPrototypeOf(window)) targets.push(Object.getPrototypeOf(window));
+          if (typeof globalThis !== 'undefined') targets.push(globalThis);
+
+          targets.forEach(function(target) {
+            if (!target) return;
+            try {
+              Object.defineProperty(target, 'fetch', {
+                get: function() {
+                  return origFetch;
+                },
+                set: function(val) {
+                  origFetch = val;
+                },
+                configurable: true,
+                enumerable: true
+              });
+            } catch (err) {}
+          });
+        } catch (e) {}
+
+        // 3. Similarly protect sendBeacon
+        try {
+          if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
+            var origBeacon = navigator.sendBeacon.bind(navigator);
+            var navTargets = [
+              navigator,
+              typeof Navigator !== 'undefined' ? Navigator.prototype : null
+            ];
+            navTargets.forEach(function(target) {
+              if (!target) return;
+              try {
+                Object.defineProperty(target, 'sendBeacon', {
+                  get: function() { return origBeacon; },
+                  set: function(v) { origBeacon = v; },
+                  configurable: true,
+                  enumerable: true
+                });
+              } catch (err) {}
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>شركة ريمان للإستشارات الهندسية والسلامة | الرياض</title>
+    <meta name="description" content="الموقع الرسمي لشركة ريمان للإستشارات الهندسية والسلامة بالرياض. خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتماد مخططات السلامة ومكافحة الحريق لدى الدفاع المدني ومنصة بلدي." />
+    
+    <!-- SEO Search Engine Crawlers & Indexing -->
+    <meta name="keywords" content="مكتب استشارات هندسية الرياض, ريمان للاستشارات الهندسية, شركة محمد هادي ريمان, مخططات سلامة الدفاع المدني الرياض, منصة سلامة, رخص بناء منصة بلدي, تصميم معماري الرياض, تصميم انشائي كود البناء السعودي SBC, إشراف هندسي ميداني, تقرير سلامة إنشائية, مكتب هندسي حي الروضة, استشارات هندسية الرياض, fire safety consultancy riyadh, civil defense approval riyadh, reeman engineering" />
+    <meta name="author" content="شركة محمد هادي ريمان للإستشارات الهندسية والسلامة" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://reeman-engineering.sa/" />
+
+    <!-- Local Business Geo Location Tags for Riyadh & Google Maps Visibility -->
+    <meta name="geo.region" content="SA-01" />
+    <meta name="geo.placename" content="الرياض، حي الروضة" />
+    <meta name="geo.position" content="24.7570;46.7780" />
+    <meta name="ICBM" content="24.7570, 46.7780" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:site_name" content="شركة ريمان للإستشارات الهندسية والسلامة" />
+    <meta property="og:title" content="شركة ريمان للإستشارات الهندسية والسلامة | الرياض" />
+    <meta property="og:description" content="مكتب هندسي استشاري معتمد بالرياض — خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتمادات مخططات السلامة والدفاع المدني. حي الروضة، شارع الحسن بن علي." />
+    <meta property="og:url" content="https://reeman-engineering.sa/" />
+    <meta property="og:image" content="/logo.svg" />
+    <meta property="og:locale" content="ar_SA" />
+    <meta property="og:locale:alternate" content="en_US" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="شركة ريمان للإستشارات الهندسية والسلامة | الرياض" />
+    <meta name="twitter:description" content="مكتب هندسي استشاري معتمد بالرياض — خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتمادات مخططات السلامة والدفاع المدني." />
+    <meta name="twitter:image" content="/logo.svg" />
+
+    <!-- Theme & App Icons -->
+    <meta name="theme-color" content="#0f172a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ريمان الهندسية" />
+
+    <!-- Schema.org JSON-LD Structured Data: LocalBusiness & ProfessionalService -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["LocalBusiness", "ProfessionalService"],
+          "@id": "https://reeman-engineering.sa/#localbusiness",
+          "name": "شركة محمد هادي ريمان للإستشارات الهندسية والسلامة",
+          "alternateName": [
+            "شركة ريمان للإستشارات الهندسية والسلامة",
+            "مكتب ريمان الهندسي",
+            "Reeman Engineering & Safety Consultancy Co."
+          ],
+          "description": "مكتب هندسي استشاري مرخص ومعتمد في الرياض، متخصص في التصميم المعماري والإنشائي وفق كود البناء السعودي (SBC)، استخراج وتعديل رخص البناء عبر منصة بلدي، اعتماد مخططات السلامة والوقاية من الحريق لدى الدفاع المدني (منصة سلامة)، والإشراف الهندسي الميداني وفحص المباني.",
+          "url": "https://reeman-engineering.sa/",
+          "telephone": "+966559113990",
+          "email": "contact@reeman-engineering.sa",
+          "priceRange": "$$",
+          "currenciesAccepted": "SAR",
+          "paymentAccepted": "Cash, Credit Card, Bank Transfer, Mada",
+          "image": "https://reeman-engineering.sa/logo.svg",
+          "logo": "https://reeman-engineering.sa/logo.svg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "شارع الحسن بن علي، حي الروضة",
+            "addressLocality": "الرياض",
+            "addressRegion": "منطقة الرياض",
+            "postalCode": "13211",
+            "addressCountry": "SA"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 24.7570,
+            "longitude": 46.7780
+          },
+          "hasMap": "https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D9%85%D8%AD%D9%85%D8%AF+%D9%87%D8%A7%D8%AF%D9%8A+%D8%B1%D9%8A%D9%85%D8%A7%D9%86+%D9%84%D9%84%D8%A5%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9+%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xac6fb6836721d8bd?sa=X&ved=1t:2428&ictx=111",
+          "sameAs": [
+            "https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D9%85%D8%AD%D9%85%D8%AF+%D9%87%D8%A7%D8%AF%D9%8A+%D8%B1%D9%8A%D9%85%D8%A7%D9%86+%D9%84%D9%84%D8%A5%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9+%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xac6fb6836721d8bd?sa=X&ved=1t:2428&ictx=111"
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Saturday",
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday"
+              ],
+              "opens": "08:00",
+              "closes": "21:00"
+            }
+          ],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "184",
+            "bestRating": "5",
+            "worstRating": "1"
+          },
+          "areaServed": [
+            {
+              "@type": "City",
+              "name": "الرياض",
+              "sameAs": "https://en.wikipedia.org/wiki/Riyadh"
+            },
+            {
+              "@type": "AdministrativeArea",
+              "name": "منطقة الرياض"
+            },
+            {
+              "@type": "Country",
+              "name": "المملكة العربية السعودية"
+            }
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "الخدمات الهندسية والاستشارية المعتمدة",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "التصميم المعماري ورخص البناء (منصة بلدي)",
+                  "description": "إعداد التصاميم المعمارية المبتكرة وإصدار وتجديد رخص البناء والقرارات المساحية طبقاً لكود البناء السعودي واشتراطات أمانة منطقة الرياض."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "التصميم الإنشائي وحسابات الأحمال (كود SBC)",
+                  "description": "تصاميم إنشائية دقيقة ومخططات تسليح متوافقة مع كود البناء السعودي لتحقيق أعلى معايير الأمان الإنشائي والجدوى الاقتصادية."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "مخططات السلامة والوقاية من الحريق (الدفاع المدني - سلامة)",
+                  "description": "تصميم واعتماد مخططات أنظمة مكافحة الحريق، إنذار الحريق، مسالك الهروب، ودراسات كود NFPA المعتمدة عبر منصة سلامة."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "الإشراف الهندسي الميداني واستلام الصبات",
+                  "description": "متابعة هندسية ميدانية لكافة مراحل التنفيذ واستلام حديد التسليح والصبات الخرسانية بمحاضر استلام وتقارير دورية معتمدة."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "تقارير السلامة الإنشائية وفحص المباني القائمة",
+                  "description": "فحص هندسي للمباني القائمة وإصدار تقارير السلامة الإنشائية المعتمدة لرخص التعلية، التجديد، أو الفحص الدوري."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://reeman-engineering.sa/#website",
+          "url": "https://reeman-engineering.sa/",
+          "name": "شركة ريمان للإستشارات الهندسية والسلامة",
+          "description": "مكتب استشارات هندسية وسلامة معتمد بالرياض — شارع الحسن بن علي، الروضة.",
+          "inLanguage": ["ar-SA", "en-US"],
+          "publisher": {
+            "@id": "https://reeman-engineering.sa/#localbusiness"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-slate-50 text-slate-900 font-['Cairo',sans-serif] antialiased selection:bg-amber-500 selection:text-white">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX46PH5V"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

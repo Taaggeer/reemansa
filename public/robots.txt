@@ -1,0 +1,5 @@
+# robots.txt for Reeman Engineering & Safety Consultancy
+User-agent: *
+Allow: /
+
+Sitemap: https://reeman-engineering.sa/sitemap.xml
