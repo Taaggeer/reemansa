@@ -1,269 +1,65 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-  <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WX46PH5V');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8" />
-    <script>
-      (function() {
-        // 1. Intercept and suppress the getter TypeError from reporting as an unhandled error
-        if (typeof window !== 'undefined') {
-          window.addEventListener('error', function(event) {
-            if (event && event.message && event.message.indexOf('Cannot set property fetch') !== -1) {
-              event.preventDefault();
-              if (typeof event.stopImmediatePropagation === 'function') {
-                event.stopImmediatePropagation();
-              }
-              return true;
-            }
-          }, true);
-        }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#30302f">
+  <meta name="description" content="ريمان للاستشارات الهندسية: التصميم المعماري والداخلي، التخطيط العمراني، الإشراف، التراخيص وأنظمة الوقاية من الحريق في المملكة العربية السعودية.">
+  <title>ريمان للاستشارات الهندسية | تصميم يوازن بين الوظيفة والشكل والتكلفة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">تجاوز إلى المحتوى</a>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="ريمان للاستشارات الهندسية - الصفحة الرئيسية"><span class="brand-mark">R<span>R</span></span><span class="brand-copy"><strong>ريمان</strong><small>للاستشارات الهندسية</small></span></a>
+      <button class="menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+      <nav id="nav" class="nav" aria-label="التنقل الرئيسي"><a href="#about">من نحن</a><a href="#services">خدماتنا</a><a href="#projects">مشاريعنا</a><a href="#contact">تواصل معنا</a></nav>
+      <div class="header-actions"><a class="header-call" href="tel:+966503360309">اتصل بنا</a><a class="header-cta" href="https://wa.me/966503360309?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%B1%D9%8A%D9%85%D8%A7%D9%86" target="_blank" rel="noopener">تحدث معنا عبر واتساب <span aria-hidden="true">↗</span></a></div>
+    </div>
+  </header>
 
-        // 2. Define getter + setter on window, Window.prototype, and prototype chain
-        try {
-          var origFetch = typeof window !== 'undefined' ? window.fetch : null;
-          var targets = [];
-          if (typeof window !== 'undefined') targets.push(window);
-          if (typeof Window !== 'undefined' && Window.prototype) targets.push(Window.prototype);
-          if (typeof window !== 'undefined' && Object.getPrototypeOf(window)) targets.push(Object.getPrototypeOf(window));
-          if (typeof globalThis !== 'undefined') targets.push(globalThis);
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="hero-image" src="hero-villa.webp" alt="تصميم فيلا عصرية من أعمال ريمان" fetchpriority="high">
+      <div class="hero-shade"></div>
+      <div class="shell hero-content"><p class="eyebrow light">REEMAN ENGINEERING CONSULTANCY</p><h1 id="hero-title">نمنح الأفكار<br><em>شكلًا يُبنى.</em></h1><p>حلول هندسية متكاملة، من الفكرة الأولى إلى الإشراف على التنفيذ، توازن بين جودة التصميم واحتياجاتك وتكلفة المشروع.</p><div class="hero-actions"><a class="button button-light" href="#projects">استكشف مشاريعنا</a><a class="text-link" href="#services">تعرف على خدماتنا <span aria-hidden="true">←</span></a></div></div>
+      <div class="hero-index" aria-hidden="true">01 / 03</div>
+    </section>
 
-          targets.forEach(function(target) {
-            if (!target) return;
-            try {
-              Object.defineProperty(target, 'fetch', {
-                get: function() {
-                  return origFetch;
-                },
-                set: function(val) {
-                  origFetch = val;
-                },
-                configurable: true,
-                enumerable: true
-              });
-            } catch (err) {}
-          });
-        } catch (e) {}
+    <section class="intro section" id="about"><div class="shell intro-grid"><div><p class="eyebrow">عن ريمان / 01</p><h2>هندسة تبدأ<br>بفهم ما تحتاجه.</h2></div><div class="intro-copy"><p>في ريمان للاستشارات الهندسية، نعمل مع العميل خطوة بخطوة لصياغة حلول تجمع الوظيفة والشكل والتكلفة. يقدم فريقنا خدمات التصميم والتخطيط والإشراف والتراخيص، مستندًا إلى الخبرة الهندسية ومتطلبات المشاريع في المملكة العربية السعودية.</p><div class="principles"><span>الفكرة</span><i></i><span>التصميم</span><i></i><span>التنفيذ</span></div></div></div></section>
 
-        // 3. Similarly protect sendBeacon
-        try {
-          if (typeof navigator !== 'undefined' && navigator.sendBeacon) {
-            var origBeacon = navigator.sendBeacon.bind(navigator);
-            var navTargets = [
-              navigator,
-              typeof Navigator !== 'undefined' ? Navigator.prototype : null
-            ];
-            navTargets.forEach(function(target) {
-              if (!target) return;
-              try {
-                Object.defineProperty(target, 'sendBeacon', {
-                  get: function() { return origBeacon; },
-                  set: function(v) { origBeacon = v; },
-                  configurable: true,
-                  enumerable: true
-                });
-              } catch (err) {}
-            });
-          }
-        } catch (e) {}
-      })();
-    </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>شركة ريمان للإستشارات الهندسية والسلامة | الرياض</title>
-    <meta name="description" content="الموقع الرسمي لشركة ريمان للإستشارات الهندسية والسلامة بالرياض. خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتماد مخططات السلامة ومكافحة الحريق لدى الدفاع المدني ومنصة بلدي." />
-    
-    <!-- SEO Search Engine Crawlers & Indexing -->
-    <meta name="keywords" content="مكتب استشارات هندسية الرياض, ريمان للاستشارات الهندسية, شركة محمد هادي ريمان, مخططات سلامة الدفاع المدني الرياض, منصة سلامة, رخص بناء منصة بلدي, تصميم معماري الرياض, تصميم انشائي كود البناء السعودي SBC, إشراف هندسي ميداني, تقرير سلامة إنشائية, مكتب هندسي حي الروضة, استشارات هندسية الرياض, fire safety consultancy riyadh, civil defense approval riyadh, reeman engineering" />
-    <meta name="author" content="شركة محمد هادي ريمان للإستشارات الهندسية والسلامة" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="googlebot" content="index, follow" />
-    <link rel="canonical" href="https://reeman-engineering.sa/" />
+    <section class="services section" id="services"><div class="shell"><div class="section-head"><div><p class="eyebrow">مجالات عملنا / 02</p><h2>خدماتنا الهندسية</h2></div><p>من الدراسات والمخططات إلى متابعة التنفيذ، خدمة مترابطة لكل مرحلة من مشروعك.</p></div><div class="service-grid">
+      <article class="service-card feature"><img src="hero-villa.webp" alt="تصميم معماري لفيلا" loading="lazy"><div><span>01</span><h3>التصميم المعماري والهندسي</h3><p>مخططات معمارية وإنشائية وميكانيكية وكهربائية وأنظمة السلامة والشبكات، تراعي المتطلبات الفنية وطبيعة المشروع.</p></div></article>
+      <article class="service-card"><img src="interior.webp" alt="مشروع تصميم داخلي" loading="lazy"><div><span>02</span><h3>التصميم الداخلي</h3><p>تصورات ثلاثية الأبعاد ومخططات تنفيذية للأثاث والإضاءة والأرضيات والأسقف.</p></div></article>
+      <article class="service-card"><img src="landscape.webp" alt="تصميم تنسيق موقع وحدائق" loading="lazy"><div><span>03</span><h3>التخطيط وتنسيق المواقع</h3><p>تخطيط عمراني وتصميم للحدائق والممرات والمساحات العامة والخاصة.</p></div></article>
+      <article class="service-card"><img src="construction.webp" alt="مراحل تنفيذ مشروع تحت الإشراف" loading="lazy"><div><span>04</span><h3>الإشراف وإدارة المشاريع</h3><p>متابعة التنفيذ، التنسيق بين الأطراف، مراجعة الأعمال وإعداد التقارير.</p></div></article>
+      <article class="service-card"><img src="factory.webp" alt="مشروع منشأة صناعية" loading="lazy"><div><span>05</span><h3>الأعمال المساحية والتراخيص</h3><p>رفع مساحي وخرائط وحصر كميات، إلى جانب متابعة الرخص الفنية.</p></div></article>
+      <article class="service-card"><img src="fire-hotel.webp" alt="مشروع أنظمة الوقاية من الحريق" loading="lazy"><div><span>06</span><h3>أنظمة الوقاية من الحريق</h3><p>تصميم مخططات أنظمة السلامة وتسليمها للجهات المختصة.</p></div></article>
+    </div></div></section>
 
-    <!-- Local Business Geo Location Tags for Riyadh & Google Maps Visibility -->
-    <meta name="geo.region" content="SA-01" />
-    <meta name="geo.placename" content="الرياض، حي الروضة" />
-    <meta name="geo.position" content="24.7570;46.7780" />
-    <meta name="ICBM" content="24.7570, 46.7780" />
+    <section class="statement"><div class="shell statement-inner"><span class="statement-number">R.</span><blockquote>«نصمم بما يخدم حاجة العميل، ونبحث عن أفضل صيغة تجمع الوظيفة والشكل والتكلفة.»</blockquote><span class="statement-caption">من منهج ريمان في التصميم</span></div></section>
 
-    <!-- Open Graph / Facebook / WhatsApp -->
-    <meta property="og:type" content="business.business" />
-    <meta property="og:site_name" content="شركة ريمان للإستشارات الهندسية والسلامة" />
-    <meta property="og:title" content="شركة ريمان للإستشارات الهندسية والسلامة | الرياض" />
-    <meta property="og:description" content="مكتب هندسي استشاري معتمد بالرياض — خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتمادات مخططات السلامة والدفاع المدني. حي الروضة، شارع الحسن بن علي." />
-    <meta property="og:url" content="https://reeman-engineering.sa/" />
-    <meta property="og:image" content="/logo.svg" />
-    <meta property="og:locale" content="ar_SA" />
-    <meta property="og:locale:alternate" content="en_US" />
+    <section class="projects section" id="projects"><div class="shell"><div class="section-head"><div><p class="eyebrow">أعمال مختارة / 03</p><h2>مشاريعنا</h2></div><p>نماذج من التصميم المعماري والداخلي وتنسيق المواقع والإشراف الهندسي الواردة في ملف أعمال ريمان.</p></div><div class="filters" role="group" aria-label="تصفية المشاريع"><button class="active" data-filter="all" type="button" aria-pressed="true">جميع المشاريع</button><button data-filter="architecture" type="button" aria-pressed="false">معماري</button><button data-filter="interior" type="button" aria-pressed="false">داخلي</button><button data-filter="landscape" type="button" aria-pressed="false">تنسيق مواقع</button><button data-filter="supervision" type="button" aria-pressed="false">إشراف وأنظمة</button></div><div class="project-grid">
+      <article class="project-card wide" data-category="architecture"><img src="hero-villa.webp" alt="تصميم فيلا سكنية عصرية" loading="lazy"><div><small>تصميم معماري</small><h3>فيلا سكنية</h3></div></article>
+      <article class="project-card" data-category="interior"><img src="interior.webp" alt="تصاميم داخلية لمطبخ وغرفة نوم" loading="lazy"><div><small>تصميم داخلي</small><h3>مساحات داخلية</h3></div></article>
+      <article class="project-card" data-category="landscape"><img src="landscape.webp" alt="منظور علوي لمشروع تنسيق موقع" loading="lazy"><div><small>تنسيق مواقع</small><h3>مشروع لاندسكيب</h3></div></article>
+      <article class="project-card" data-category="architecture"><img src="retail.webp" alt="تصميم مبنى تجاري" loading="lazy"><div><small>تصميم تجاري</small><h3>مبنى تجاري</h3></div></article>
+      <article class="project-card" data-category="architecture"><img src="factory.webp" alt="تصميم منشأة مستودعات وورش" loading="lazy"><div><small>منشآت</small><h3>مستودعات وورش</h3></div></article>
+      <article class="project-card" data-category="supervision"><img src="construction.webp" alt="صور أعمال الإشراف على التنفيذ" loading="lazy"><div><small>إشراف هندسي</small><h3>مبانٍ سكنية</h3></div></article>
+      <article class="project-card" data-category="supervision"><img src="fire-hotel.webp" alt="فندق ضمن أعمال أنظمة الوقاية من الحريق" loading="lazy"><div><small>أنظمة سلامة</small><h3>فندق دبل تري، حي المصيف</h3></div></article>
+      <article class="project-card" data-category="architecture"><img src="villa-nada.webp" alt="فيلا سكنية في حي الندى بالرياض" loading="lazy"><div><small>تصميم فلل</small><h3>فيلا سكنية، حي الندى</h3></div></article>
+    </div></div></section>
 
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="شركة ريمان للإستشارات الهندسية والسلامة | الرياض" />
-    <meta name="twitter:description" content="مكتب هندسي استشاري معتمد بالرياض — خدمات التصميم المعماري والإنشائي، الإشراف الميداني، واعتمادات مخططات السلامة والدفاع المدني." />
-    <meta name="twitter:image" content="/logo.svg" />
-
-    <!-- Theme & App Icons -->
-    <meta name="theme-color" content="#0f172a" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="apple-mobile-web-app-title" content="ريمان الهندسية" />
-
-    <!-- Schema.org JSON-LD Structured Data: LocalBusiness & ProfessionalService -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": ["LocalBusiness", "ProfessionalService"],
-          "@id": "https://reeman-engineering.sa/#localbusiness",
-          "name": "شركة محمد هادي ريمان للإستشارات الهندسية والسلامة",
-          "alternateName": [
-            "شركة ريمان للإستشارات الهندسية والسلامة",
-            "مكتب ريمان الهندسي",
-            "Reeman Engineering & Safety Consultancy Co."
-          ],
-          "description": "مكتب هندسي استشاري مرخص ومعتمد في الرياض، متخصص في التصميم المعماري والإنشائي وفق كود البناء السعودي (SBC)، استخراج وتعديل رخص البناء عبر منصة بلدي، اعتماد مخططات السلامة والوقاية من الحريق لدى الدفاع المدني (منصة سلامة)، والإشراف الهندسي الميداني وفحص المباني.",
-          "url": "https://reeman-engineering.sa/",
-          "telephone": "+966559113990",
-          "email": "contact@reeman-engineering.sa",
-          "priceRange": "$$",
-          "currenciesAccepted": "SAR",
-          "paymentAccepted": "Cash, Credit Card, Bank Transfer, Mada",
-          "image": "https://reeman-engineering.sa/logo.svg",
-          "logo": "https://reeman-engineering.sa/logo.svg",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "شارع الحسن بن علي، حي الروضة",
-            "addressLocality": "الرياض",
-            "addressRegion": "منطقة الرياض",
-            "postalCode": "13211",
-            "addressCountry": "SA"
-          },
-          "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 24.7570,
-            "longitude": 46.7780
-          },
-          "hasMap": "https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D9%85%D8%AD%D9%85%D8%AF+%D9%87%D8%A7%D8%AF%D9%8A+%D8%B1%D9%8A%D9%85%D8%A7%D9%86+%D9%84%D9%84%D8%A5%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9+%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xac6fb6836721d8bd?sa=X&ved=1t:2428&ictx=111",
-          "sameAs": [
-            "https://www.google.com/maps/place/%D8%B4%D8%B1%D9%83%D8%A9+%D9%85%D8%AD%D9%85%D8%AF+%D9%87%D8%A7%D8%AF%D9%8A+%D8%B1%D9%8A%D9%85%D8%A7%D9%86+%D9%84%D9%84%D8%A5%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A7%D8%AA+%D8%A7%D9%84%D9%87%D9%86%D8%AF%D8%B3%D9%8A%D8%A9+%D9%88%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D8%A9%E2%80%AD/data=!4m2!3m1!1s0x0:0xac6fb6836721d8bd?sa=X&ved=1t:2428&ictx=111"
-          ],
-          "openingHoursSpecification": [
-            {
-              "@type": "OpeningHoursSpecification",
-              "dayOfWeek": [
-                "Saturday",
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday"
-              ],
-              "opens": "08:00",
-              "closes": "21:00"
-            }
-          ],
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "184",
-            "bestRating": "5",
-            "worstRating": "1"
-          },
-          "areaServed": [
-            {
-              "@type": "City",
-              "name": "الرياض",
-              "sameAs": "https://en.wikipedia.org/wiki/Riyadh"
-            },
-            {
-              "@type": "AdministrativeArea",
-              "name": "منطقة الرياض"
-            },
-            {
-              "@type": "Country",
-              "name": "المملكة العربية السعودية"
-            }
-          ],
-          "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "الخدمات الهندسية والاستشارية المعتمدة",
-            "itemListElement": [
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "التصميم المعماري ورخص البناء (منصة بلدي)",
-                  "description": "إعداد التصاميم المعمارية المبتكرة وإصدار وتجديد رخص البناء والقرارات المساحية طبقاً لكود البناء السعودي واشتراطات أمانة منطقة الرياض."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "التصميم الإنشائي وحسابات الأحمال (كود SBC)",
-                  "description": "تصاميم إنشائية دقيقة ومخططات تسليح متوافقة مع كود البناء السعودي لتحقيق أعلى معايير الأمان الإنشائي والجدوى الاقتصادية."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "مخططات السلامة والوقاية من الحريق (الدفاع المدني - سلامة)",
-                  "description": "تصميم واعتماد مخططات أنظمة مكافحة الحريق، إنذار الحريق، مسالك الهروب، ودراسات كود NFPA المعتمدة عبر منصة سلامة."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "الإشراف الهندسي الميداني واستلام الصبات",
-                  "description": "متابعة هندسية ميدانية لكافة مراحل التنفيذ واستلام حديد التسليح والصبات الخرسانية بمحاضر استلام وتقارير دورية معتمدة."
-                }
-              },
-              {
-                "@type": "Offer",
-                "itemOffered": {
-                  "@type": "Service",
-                  "name": "تقارير السلامة الإنشائية وفحص المباني القائمة",
-                  "description": "فحص هندسي للمباني القائمة وإصدار تقارير السلامة الإنشائية المعتمدة لرخص التعلية، التجديد، أو الفحص الدوري."
-                }
-              }
-            ]
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://reeman-engineering.sa/#website",
-          "url": "https://reeman-engineering.sa/",
-          "name": "شركة ريمان للإستشارات الهندسية والسلامة",
-          "description": "مكتب استشارات هندسية وسلامة معتمد بالرياض — شارع الحسن بن علي، الروضة.",
-          "inLanguage": ["ar-SA", "en-US"],
-          "publisher": {
-            "@id": "https://reeman-engineering.sa/#localbusiness"
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Google Fonts: Cairo & IBM Plex Sans Arabic -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-slate-50 text-slate-900 font-['Cairo',sans-serif] antialiased selection:bg-amber-500 selection:text-white">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WX46PH5V"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <section class="contact" id="contact"><div class="shell contact-grid"><div><p class="eyebrow light">ابدأ مشروعك / 04</p><h2>لنبنِ فكرتك<br>معًا.</h2><p>حدثنا عن مشروعك واحتياجاته عبر الاتصال أو واتساب.</p><div class="contact-actions"><a class="button button-light" href="https://wa.me/966503360309?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D8%A8%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%D9%8A%20%D9%85%D8%B9%20%D8%B1%D9%8A%D9%85%D8%A7%D9%86" target="_blank" rel="noopener">تواصل عبر واتساب <span aria-hidden="true">↗</span></a><a class="button button-outline" href="tel:+966503360309">اتصل بنا <span aria-hidden="true">☎</span></a></div></div><div class="contact-info"><div><span>اتصال وواتساب</span><a dir="ltr" href="tel:+966503360309">+966 50 336 0309</a></div><div><span>مواقعنا</span><p>الرياض · حي الروضة · شارع الحسن بن علي<br>نجران · شمال الفهد · شارع الحسين بن علي بن أبي طالب<br>جازان · حي الروضة · طريق الأمير سلطان</p></div><div><span>تابعنا</span><a href="https://www.instagram.com/reeman_eng/" target="_blank" rel="noopener">@reeman_eng</a></div></div></div></section>
+  </main>
+  <footer><div class="shell footer-inner"><a class="brand" href="#top"><span class="brand-mark">R<span>R</span></span><span class="brand-copy"><strong>ريمان</strong><small>للاستشارات الهندسية</small></span></a><p>© 2026 ريمان للاستشارات الهندسية</p><a href="#top">العودة للأعلى ↑</a></div></footer>
+  <div class="floating-actions"><a class="call-float" href="tel:+966503360309" aria-label="اتصل بريمان"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.7L7.1 10a16 16 0 0 0 6 6l1.6-1.9a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.6 2Z"/></svg></a><a class="whatsapp-float" href="https://wa.me/966503360309" target="_blank" rel="noopener" aria-label="تواصل مع ريمان عبر واتساب"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 .8A15.2 15.2 0 0 0 2.9 23.7L.8 31l7.5-2A15.2 15.2 0 1 0 16 .8Zm0 27.6a12.4 12.4 0 0 1-6.3-1.7l-.5-.3-4.4 1.1L6 23.3l-.3-.5A12.4 12.4 0 1 1 16 28.4Zm6.8-9.3c-.4-.2-2.2-1.1-2.5-1.2-.3-.1-.5-.2-.7.2s-.9 1.2-1.1 1.4c-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.3-2.1-2.7-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2.1-.5 0-.7l-1.1-2.7c-.3-.6-.5-.5-.8-.5H11c-.3 0-.7.1-1 .5s-1.3 1.3-1.3 3.2 1.3 3.8c1.3 2.5 3.2 3.5 5.2.8 1.5 1.4 2.1 1.5.9.2 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.3-.3-.7-.5Z"/></svg></a></div>
+  <script src="script.js"></script>
+</body>
 </html>
 
